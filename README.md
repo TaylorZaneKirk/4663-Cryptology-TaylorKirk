@@ -1,7 +1,7 @@
 # 4663-Cryptology-TaylorKirk
 Summer II
 
-![alt text](https://www.facebook.com/photo.php?fbid=10201850409045327&l=f0af46cab0)
+![alt text](https://github.com/TaylorZaneKirk/4663-Cryptology-TaylorKirk/blob/master/534824_10201850409045327_1428465012_n.jpg?raw=true)
 
 Taylor Kirk
 
