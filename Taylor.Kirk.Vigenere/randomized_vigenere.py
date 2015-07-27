@@ -16,7 +16,7 @@ class Vigenere(object):
     def __init__(self, seed):
         random.seed(seed)
         self.seed = seed
-        self.symbols= """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\] ^_`abcdefghijklmnopqrstuvwxyz{|}~"""
+        self.symbols= """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"""
         self.Table = [[0 for i in range(len(self.symbols))] for i in range(len(self.symbols))]
         self.keyWord = ""
         self.message = ""
