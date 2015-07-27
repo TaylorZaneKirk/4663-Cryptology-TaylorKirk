@@ -1,7 +1,7 @@
 ###############################################
 # Name: Taylor Kirk
 # Class: CMPS XXXX Cryptography
-# Date: 13 July 2015
+# Date: 27 July 2015
 # Program 2 - Randomized Vigenere Cipher
 ###############################################
 
