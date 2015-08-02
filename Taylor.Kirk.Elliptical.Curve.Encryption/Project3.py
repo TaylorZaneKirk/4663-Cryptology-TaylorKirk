@@ -38,23 +38,7 @@ def main():
     if firstCoOrdTest != y1 or secondCoOrdTest != y2:
         print("Error: Please check given points. One or both are not found on given elliptical")
     else:
-        print("Success!!: Both points are found on given elliptical curve")
-    
-    
-    #Determines width and height of plot
-    w = 10
-    h = 12
-    
-    # This creates a mesh grid with values determined by width and height (w,h)
-    # of the plot with increments of .0001 (1000j = .0001 or 5j = .05)
-    y, x = np.ogrid[-h:h:1000j, -w:w:1000j]
-    
-    # Plot the curve (using matplotlib's countour function)
-    # This drawing function applies a "function" described in the
-    # 3rd parameter:  pow(y, 2) - ( pow(x, 3) - x + 1 ) to all the
-    # values in x and y.
-    # The .ravel method turns the x and y grids into single dimensional arrays
-    plt.contour(x.ravel(), y.ravel(), pow(y, 2) - ( pow(x, 3) + a*x + b ), [0])
+        print("Success!!: Both points are found on given elliptical curve")    
     
     #Get the slope of the line
     #if P1 and P2 share either or both of each point's respective
@@ -62,6 +46,7 @@ def main():
     #to calculate slope, else, use traditional point-slope formula
     if x1 == x2 or y1 == y2:
         m = (3 * x1**2 + a) / (2 * y1)
+        print("Message: Derivitive Slope used instead of Point-Slope")
     else:
         m = (y1-y2)/(x1-x2)
     
@@ -76,15 +61,69 @@ def main():
     else:
         print("Success!!: 3rd, related Point found at (" , x3 , ',' , y3 , ")")
         
+    #Determines width and height of plot
+    w = 10
+    h = 12
+    
+    xMax = x1
+    if xMax < x2:
+        xMax = x2
+    if xMax < x3:
+        xMax = x3
+    
+    yMax = y1
+    if yMax < y2:
+        yMax = y2
+    if yMax < y3:
+        yMax = y3
+        
+    w = xMax + 3
+    h = yMax + 3
+    
+    # Annotate the plot with your name using width (w) and height (h) as your reference points.
+    plt.annotate("Taylor Kirk", xy=(-w+2 , h-2),
+                 xycoords="data", va="center", ha="center",
+                 bbox=dict(boxstyle="round", fc="w"))
+    
+    # This creates a mesh grid with values determined by width and height (w,h)
+    # of the plot with increments of .0001 (1000j = .0001 or 5j = .05)
+    y, x = np.ogrid[-h:h:1000j, -w:w:1000j]
+    
+    # Plot the curve (using matplotlib's countour function)
+    # This drawing function applies a "function" described in the
+    # 3rd parameter:  pow(y, 2) - ( pow(x, 3) - x + 1 ) to all the
+    # values in x and y.
+    # The .ravel method turns the x and y grids into single dimensional arrays
+    plt.contour(x.ravel(), y.ravel(), pow(y, 2) - ( pow(x, 3) + a*x + b ), [0])
+        
     # Plot the points ('ro' = red, 'bo' = blue, 'yo'=yellow and so on)
     plt.plot(x1, y1,'ro')
+    
+    # Annotate point 1
+    plt.annotate('x1,y1', xy=(x1, y1), xytext=(x1+1,y1+1),
+        arrowprops=dict(arrowstyle="->",
+        connectionstyle="arc3"),
+        )    
+    
     plt.plot(x2, y2,'ro')
+    
+    # Annotate point 2
+    plt.annotate('x2,y2', xy=(x2, y2), xytext=(x2+1,y2+1),
+        arrowprops=dict(arrowstyle="->",
+        connectionstyle="arc3"),
+        )
     
     # Use a contour plot to draw the line (in pink) connecting our point.
     plt.contour(x.ravel(), y.ravel(), (y-y1)-m*(x-x1), [0],colors=('pink'))
     
     #Plot P3
     plt.plot(x3, y3,'yo')
+    
+    # Annotate point 3
+    plt.annotate('x3,y3', xy=(x3, y3), xytext=(x3+1,y3+1),
+        arrowprops=dict(arrowstyle="->",
+        connectionstyle="arc3"),
+        )
     
     # Show a grid background on our plot
     plt.grid()
