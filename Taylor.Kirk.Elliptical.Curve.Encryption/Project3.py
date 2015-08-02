@@ -62,8 +62,8 @@ def main():
         print("Success!!: 3rd, related Point found at (" , x3 , ',' , y3 , ")")
         
     #Determines width and height of plot
-    w = 10
-    h = 12
+    w = 10  #Default w Value
+    h = 12  #Default h Value
     
     xMax = x1
     if xMax < x2:
@@ -77,8 +77,8 @@ def main():
     if yMax < y3:
         yMax = y3
         
-    w = xMax + 3
-    h = yMax + 3
+    w = xMax + 3    #w-Value that will be used
+    h = yMax + 3    #h-Value that will be used
     
     # Annotate the plot with your name using width (w) and height (h) as your reference points.
     plt.annotate("Taylor Kirk", xy=(-w+2 , h-2),
