@@ -42,11 +42,11 @@ def main():
     
     #Get the slope of the line
     #if P1 and P2 share either or both of each point's respective
-    #x-values or y-values are the same, use derivitive form
+    #x-values or y-values are the same, use derivative form
     #to calculate slope, else, use traditional point-slope formula
-    if x1 == x2 or y1 == y2:
+    if x1 == x2 and y1 == y2:
         m = (3 * x1**2 + a) / (2 * y1)
-        print("Message: Derivitive Slope used instead of Point-Slope")
+        print("Message: Derivative Slope used instead of Point-Slope")
     else:
         m = (y1-y2)/(x1-x2)
     
